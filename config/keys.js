@@ -1,3 +1,4 @@
 module.exports = {
-    mogoURI: ''
-}
+    mogoURI: '',
+    secretOrKey: 'secret'
+};
