@@ -36,7 +36,7 @@ class CreateProfile extends Component {
 
     componentWillReceiveProps(nextProps){
         if(nextProps.errors){
-            this.setState({ errors: nextProps.errors })
+            this.setState({ errors: nextProps.errors });
         }
     }
 
@@ -57,7 +57,7 @@ class CreateProfile extends Component {
             linkedin: this.state.linkedin,
             youtube: this.state.youtube,
             instagram: this.state.instagram
-        }
+        };
 
         this.props.createProfile(profileData, this.props.history);
 
@@ -89,7 +89,7 @@ class CreateProfile extends Component {
                         name="facebook"
                         icon="fab fa-facebook"
                         value={this.state.facebook}
-                        onChane={this.onChange}
+                        onChange={this.onChange}
                         error={errors.facebook}
                     />
 
@@ -129,7 +129,7 @@ class CreateProfile extends Component {
             { label: '* Select Profissional Status', value: 0 },
             { label: 'Developer', value:'Developer' },
             { label: 'Junior Developer', value: 'Junior Developer' },
-            { label: 'Senior Developer', value: 'Senhor Developer' },
+            { label: 'Senior Developer', value: 'Senior Developer' },
             { label: 'Manager', value: 'Manager' },
             { label: 'Student or Learning', value: 'Student or Learning' },
             { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
