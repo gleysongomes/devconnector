@@ -4,15 +4,15 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addEducation } from '../../actions/profileActions';
+import { addExperience } from '../../actions/profileActions';
 
-class AddEducation extends Component {
+class AddExperience extends Component {
     constructor(props){
         super(props);
         this.state = {
-            school: '',
-            degree: '',
-            fieldofstudy: '',
+            company: '',
+            title: '',
+            location: '',
             from: '',
             to: '',
             current: false,
@@ -35,18 +35,18 @@ class AddEducation extends Component {
     onSubmit(e){
         e.preventDefault();
 
-        const eduData = {
-            school: this.state.school,
-            degree: this.state.degree,
-            fieldofstudy: this.state.fieldofstudy,
+        const expData = {
+            company: this.state.company,
+            title: this.state.title,
+            location: this.state.location,
             from: this.state.from,
             to: this.state.to,
             current: this.state.current,
             description: this.state.description
         };
 
-        this.props.addEducation(eduData, this.props.history);
-
+        this.props.addExperience(expData, this.props.history);
+        
     }
 
     onChange(e){
@@ -65,43 +65,39 @@ class AddEducation extends Component {
         const { errors } = this.state;
 
         return (
-            <div className="add-education">
+            <div className="add-experience">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
                             <Link to="/dashboard" className="btn btn-light">
                                 Go Back
                             </Link>
-                            <h1 className="display-4 text-center">Add Education</h1>
-                            <p className="lead text-center">
-                                Add any school, bootcamp, etc that you have attended
-                            </p>
+                            <h1 className="display-4 text-center">Add Experience</h1>
+                            <p className="lead text-center">Add any or position that you have in the past or current</p>
                             <small className="d-block pb-3">* = required fields</small>
                             <form onSubmit={this.onSubmit}>
-                                <TextFieldGroup 
-                                    placeholder="* School"
-                                    name="school"
-                                    value={this.state.school}
+                                <TextFieldGroup
+                                    placeholder="* Company"
+                                    name="company"
+                                    value={this.state.company}
                                     onChange={this.onChange}
-                                    error={errors.school}
+                                    error={errors.company}
                                 />
-
                                 <TextFieldGroup 
-                                    placeholder="* Degree or Certification"
-                                    name="degree"
-                                    value={this.state.degree}
+                                    placeholder="* Job Title"
+                                    name="title"
+                                    value={this.state.title}
                                     onChange={this.onChange}
-                                    error={this.errors}
+                                    error={errors.title}
                                 />
-
                                 <TextFieldGroup 
-                                    placeholder="Field of Study"
-                                    name="fieldofstudy"
-                                    value={this.state.fieldofstudy}
+                                    placeholder="Location"
+                                    name="location"
+                                    value={this.state.location}
                                     onChange={this.onChange}
-                                    error={errors.fieldofstudy}
+                                    error={errors.location}
                                 />
-
+                                
                                 <h6>From Date</h6>
                                 <TextFieldGroup 
                                     name="from"
@@ -122,53 +118,54 @@ class AddEducation extends Component {
                                 />
 
                                 <div className="form-check mb-4">
-                                    <input 
+                                    <input
                                         type="checkbox"
                                         className="form-check-input"
                                         name="current"
                                         value={this.state.current}
                                         checked={this.state.current}
                                         onChange={this.onCheck}
-                                        id="current"
+                                        id="current" 
                                     />
                                     <label htmlFor="current" className="form-check-label">
-                                        Current Program
+                                        Current Job
                                     </label>
+
                                 </div>
 
                                 <TextAreaFieldGroup 
-                                    placeholder="Program Description"
+                                    placeholder="Job Description"
                                     name="description"
                                     value={this.state.description}
                                     onChange={this.onChange}
                                     error={errors.description}
-                                    info="Tell us about the program that you were in"
+                                    info="Tell us about the position"
                                 />
 
                                 <input 
-                                    type="submit"
-                                    value="Submit"
-                                    className="btn btn-info btn-block mt-4"
-                                />
+                                    type="submit" 
+                                    value="Submit" 
+                                    className="btn btn-info btn-block mt-4" 
+                                />                            
 
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
-AddEducation.propTypes = {
-    addEducation: PropTypes.func.isRequired,
+AddExperience.propTypes = {
+    addExperience: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
-};
+}
 
 const mapStateToProps = state => ({
     profile: state.profile,
     errors: state.errors
 });
 
-export default connect(mapStateToProps, { addEducation })(withRouter(AddEducation));
+export default connect(mapStateToProps, { addExperience })(withRouter(AddExperience));
