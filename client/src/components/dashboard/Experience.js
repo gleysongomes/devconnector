@@ -44,12 +44,12 @@ class Experience extends Component {
                     </tbody>
                 </table>
             </div>
-        )
+        );
     }
 }
 
 Experience.propTypes = {
     deleteExperience: PropTypes.func.isRequired
-}
+};
 
 export default connect(null, { deleteExperience })(Experience);

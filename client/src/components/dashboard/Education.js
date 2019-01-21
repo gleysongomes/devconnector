@@ -43,13 +43,12 @@ class Education extends Component {
                     </tbody>
                 </table>
             </div>
-        )
-
+        );
     }
 }
 
 Education.propTypes = {
     deleteEducation: PropTypes.func.isRequired
-}
+};
 
 export default connect(null, { deleteEducation })(Education);

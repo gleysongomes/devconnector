@@ -91,11 +91,11 @@ class AddEducation extends Component {
                                     name="degree"
                                     value={this.state.degree}
                                     onChange={this.onChange}
-                                    error={this.errors}
+                                    error={errors.degree}
                                 />
 
                                 <TextFieldGroup 
-                                    placeholder="Field of Study"
+                                    placeholder="* Field of Study"
                                     name="fieldofstudy"
                                     value={this.state.fieldofstudy}
                                     onChange={this.onChange}
@@ -156,7 +156,7 @@ class AddEducation extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 

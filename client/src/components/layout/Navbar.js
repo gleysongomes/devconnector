@@ -9,8 +9,8 @@ class Navbar extends Component {
 
 	onLogoutClick(e){
 		e.preventDefault();
-		this.props.logoutUser();
 		this.props.clearCurrentProfile();
+		this.props.logoutUser();
 	}
 
 	render() {
@@ -24,7 +24,7 @@ class Navbar extends Component {
 					</Link>
 				</li>
 				<li className="nav-item">
-					<a href="#" onClick={this.onLogoutClick.bind(this)} className="nav-link">
+					<a href="" onClick={this.onLogoutClick.bind(this)} className="nav-link">
 						<img 
 							className="rounded-circle"
 							src={user.avatar} 
@@ -82,7 +82,7 @@ class Navbar extends Component {
 Navbar.propTypes = {
 	logoutUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired
-}
+};
 
 const mapStateToProps = (state) => ({
 	auth: state.auth

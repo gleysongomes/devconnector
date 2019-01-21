@@ -106,7 +106,7 @@ export const getProfiles = () => dispatch => {
 
 // Delete account & profile
 export const deleteAccount = () => dispatch => {
-    if(window.confirm('Are you sure? This can NOT undone!')){
+    if(window.confirm('Are you sure? This can NOT be undone!')){
         axios.delete('/api/profile')
         .then(res => dispatch({
             type: SET_CURRENT_USER,
@@ -118,18 +118,18 @@ export const deleteAccount = () => dispatch => {
             })
         );
     }
-}
+};
 
 // Profile loading
 export const setProfileLoading = () => {
     return {
         type: PROFILE_LOADING
-    }
-}
+    };
+};
 
 // Clear profile
 export const clearCurrentProfile = () => {
     return {
         type: CLEAR_CURRENT_PROFILE
     };
-}
+};
