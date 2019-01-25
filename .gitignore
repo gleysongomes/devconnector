@@ -1,5 +1,4 @@
 /node_modules
 package-lock.json
 .angulardoc.json
-
- 
+/config/keys_dev.js

@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // DB Config
-const db = require('./config/keys').mogoURI;
+const db = require('./config/keys').mongoURI;
 
 mongoose.connect(db).
 then(() => console.log('MongoDB Connected'))
